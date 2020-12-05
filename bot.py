@@ -194,6 +194,6 @@ async def help(ctx):
 #async def (ctx):
 #    await ctx.send('оброшяйтись как ``help``')     
 
-client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg.bA_Xq0BPE5BLSLgN7J3GkstojFA')
+client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg.8uRrIHPWKzPUXjeslUvz7ibiOgs')
 #client.run(str(token))
 
