@@ -102,6 +102,8 @@ async def help(ctx):
     emb.add_field(name='{}инфо'.format( PREFIX ), value='``Инфо бота``')
     emb.add_field(name='{}gstart'.format( PREFIX ), value='``Конкурс``')
     emb.add_field(name='{}server'.format( PREFIX ), value='``Инфа сервера``')
+
     await ctx.send(embed=emb)  
+
 
 client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg._kHDvPixt1n9fD01Hs0Z5c279Nc')
