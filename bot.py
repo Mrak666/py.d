@@ -106,4 +106,4 @@ async def help(ctx):
     await ctx.send(embed=emb)  
 
 
-client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg._kHDvPixt1n9fD01Hs0Z5c279Nc')
+client.run('BOT_TOKEN')
