@@ -193,4 +193,4 @@ async def help(ctx):
 #async def (ctx):
 #    await ctx.send('оброшяйтись как ``help``')     
 
-client.run('BOT_TOKEN')
+token - os.environ.get('BOT_TOKEN')
