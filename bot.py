@@ -1,4 +1,5 @@
 import discord
+import random
 from discord.ext import commands
 
 PREFIX='>'
@@ -22,9 +23,28 @@ async def инфо(ctx):
    
 
 # Clear
-@client.command( pass_context = True )
-async def clear( ctx, amount = 100 ):    
-    await ctx.chennel.purge( limit = amount )
+@client.command()
+@commands.has_permissions(manage_messages=True, read_message_history=True)
+
+async def clear(ctx, limit: int = 100,  member: discord.Member=None, *, matches: str = None, xd = "Удалено"):
+    """Purge all messages, optionally from ``user``
+    or contains ``matches``."""
+
+    def check_msg(msg):
+        if msg.id == ctx.message.id:
+            return True
+        if member is not None:
+            if msg.author.id != member.id:
+                return False
+        if matches is not None:
+            if matches not in msg.content:
+                return False
+        return True
+    deleted = await ctx.channel.purge(limit=limit, check=check_msg)
+
+    massage = await ctx.send(len(deleted))
+    await asyncio.sleep(8)
+    await massage.delete()
 
 #kick
 @client.command( pass_context = True )
@@ -102,8 +122,8 @@ async def help(ctx):
     emb.add_field(name='{}инфо'.format( PREFIX ), value='``Инфо бота``')
     emb.add_field(name='{}gstart'.format( PREFIX ), value='``Конкурс``')
     emb.add_field(name='{}server'.format( PREFIX ), value='``Инфа сервера``')
+    await ctx.send(embed=emb)
+          
 
-    await ctx.send(embed=emb)  
 
-
-client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg._kHDvPixt1n9fD01Hs0Z5c279Nc')
+client.run('NzYxNTY1MzU2OTU5MDcyMjU2.X3cdAg.Pkv22u_AY-WwbhTvqHqUHFTyn2k')
